@@ -41,6 +41,51 @@ body {
   letter-spacing: 0.01em;
 }
 
+.text-button{
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height, or 156% */
+
+  text-align: center;
+}
+
+.nav-option{
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: none;
+}
+
+.nav-option:hover{
+  text-decoration: underline;
+}
+
+.nav-option.is-selected {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.nav-search{
+  flex:1;
+  border: none;
+  padding: 11px 12px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  border: 1px solid var(--primary);
+  border-radius: 8px 0px 0px 8px;
+  box-sizing: border-box;
+}
+
+.nav-search::placeholder{
+  color: var(--grey);
+}
+
 .actions {
   display: flex;
   gap: 21px;
