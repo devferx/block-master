@@ -1,4 +1,9 @@
 import { Component, createElement } from "../lib/react/index.js";
+import styled from '../lib/styled-components.js';
+
+const StarStyled = styled.img`
+  margin-right: 8px;
+`;
 
 class Movie extends Component {
   render() {
@@ -10,9 +15,15 @@ class Movie extends Component {
           class: "movie-poster",
           src: `//image.tmdb.org/t/p/w220_and_h330_face${poster_path}`,
         }),
-        createElement("p", { class: "movie-title" }, title),
-        createElement("p", { class: "movie-id" }, id),
-        createElement("span", { class: "movie-rate" }, vote_average),
+        createElement("span", {
+          class: "movie-rate headline-3",
+          children: [
+            StarStyled({
+              src: "/images/star.svg"
+            }),
+            createElement("span", {}, vote_average)
+          ]
+        }),
       ],
     });
   }

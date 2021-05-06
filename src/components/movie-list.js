@@ -1,4 +1,4 @@
-import { Component } from "../lib/react/index.js";
+import { Component, createElement } from "../lib/react/index.js";
 import styled from "../lib/styled-components.js";
 
 import Wrapper from "./wrapper.js";
@@ -10,10 +10,11 @@ import { ADD_MOVIES } from "../actions/index.js";
 
 const MovieListStyled = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 220px) );
   justify-content: center;
   box-sizing: border-box;
   gap: 1em;
+  margin-top: 48px;
 `;
 
 class MovieList extends Component {
@@ -56,9 +57,12 @@ class MovieList extends Component {
     const movieList = state.movieList;
 
     return Wrapper({
-      children: MovieListStyled({
+      children: [
+        createElement("h3", {class: "headline-1"}, "Todas las peliculas"),
+        MovieListStyled({
         children: moviesListId.map(id => new Movie(movieList.get(id))),
-      }),
+        }),
+      ],
     });
   }
 }
