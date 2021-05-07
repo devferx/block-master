@@ -1,5 +1,5 @@
 import { Component, createElement } from "../lib/react/index.js";
-import styled from '../lib/styled-components.js';
+import styled from "../lib/styled-components.js";
 
 const StarStyled = styled.img`
   margin-right: 8px;
@@ -19,10 +19,10 @@ class Movie extends Component {
           class: "movie-rate headline-3",
           children: [
             StarStyled({
-              src: "/images/star.svg"
+              src: "/images/star.svg",
             }),
-            createElement("span", {}, vote_average)
-          ]
+            createElement("span", {}, vote_average),
+          ],
         }),
       ],
     });

@@ -3,14 +3,14 @@ const createStore = (reducer, initialState) => {
 
   let updater = () => {};
 
-  const getState = _ => state;
+  const getState = (_) => state;
 
-  const dispatch = action => {
+  const dispatch = (action) => {
     state = reducer(state, action);
     updater();
   };
 
-  const subscribe = listener => {
+  const subscribe = (listener) => {
     updater = listener;
   };
 
@@ -25,7 +25,7 @@ function combineReducers(...reducers) {
   return (state, action) => {
     let finalState = state;
 
-    reducers.forEach(reducer => {
+    reducers.forEach((reducer) => {
       finalState = reducer(finalState, action);
     });
 

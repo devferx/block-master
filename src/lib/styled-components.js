@@ -30,7 +30,7 @@ function buildStyles(strings, dynamicValues, props) {
   return style.join("");
 }
 
-elements.forEach(tag => {
+elements.forEach((tag) => {
   styled[tag] = function (styles, ...dynamicsValues) {
     return function (props, content) {
       const style = buildStyles(styles, dynamicsValues, props);

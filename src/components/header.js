@@ -20,7 +20,6 @@ const InputContainer = styled.form`
   height: 44px;
 `;
 
-
 const SearchButton = styled.button`
   width: 72px;
   height: 100%;
@@ -33,18 +32,18 @@ const SearchButton = styled.button`
 
 class Header extends Component {
   state = {
-    selected: "all"
-  }
+    selected: "all",
+  };
 
-  handleChangeFilter = filter => {
-    this.setState({selected: filter})
+  handleChangeFilter = (filter) => {
+    this.setState({ selected: filter });
     store.dispatch({
       type: SET_FILTER,
       payload: filter,
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const query = formData.get("title");
@@ -65,20 +64,36 @@ class Header extends Component {
       children: HeaderStyled({
         children: [
           createElement("img", { src: "./images/logo.svg" }),
-          createElement("button", {
-            class: `nav-option text-button ${this.state.selected === "all" && "is-selected"}`,
-            onClick: () => this.handleChangeFilter("all"),
-          }, "Todas"),
-          createElement("button", {
-            class:
-              `nav-option text-button ${this.state.selected === "mostValued" && "is-selected"}`,
-            onClick: () => this.handleChangeFilter("mostValued"),
-          }, "Más valoradas"),
-          createElement("button", {
-            class:
-              `nav-option text-button ${this.state.selected === "leastValued" && "is-selected"}`,
-            onClick: () => this.handleChangeFilter("leastValued"),
-          }, "Menos valoradas"),
+          createElement(
+            "button",
+            {
+              class: `nav-option text-button ${
+                this.state.selected === "all" && "is-selected"
+              }`,
+              onClick: () => this.handleChangeFilter("all"),
+            },
+            "Todas"
+          ),
+          createElement(
+            "button",
+            {
+              class: `nav-option text-button ${
+                this.state.selected === "mostValued" && "is-selected"
+              }`,
+              onClick: () => this.handleChangeFilter("mostValued"),
+            },
+            "Más valoradas"
+          ),
+          createElement(
+            "button",
+            {
+              class: `nav-option text-button ${
+                this.state.selected === "leastValued" && "is-selected"
+              }`,
+              onClick: () => this.handleChangeFilter("leastValued"),
+            },
+            "Menos valoradas"
+          ),
           InputContainer({
             onSubmit: this.handleSubmit,
             children: [
@@ -91,8 +106,8 @@ class Header extends Component {
               SearchButton({
                 class: "text-button",
                 children: createElement("img", {
-                  src: "./images/search.svg"
-                })
+                  src: "./images/search.svg",
+                }),
               }),
             ],
           }),

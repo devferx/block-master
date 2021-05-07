@@ -22,7 +22,7 @@ class MovieList extends Component {
     page: 1,
   };
 
-  getPage = async page => {
+  getPage = async (page) => {
     const { results } = await api.moviePage(page);
     store.dispatch({
       type: ADD_MOVIES,
@@ -58,9 +58,9 @@ class MovieList extends Component {
 
     return Wrapper({
       children: [
-        createElement("h3", {class: "headline-1"}, "Todas las peliculas"),
+        createElement("h3", { class: "headline-1" }, "Todas las peliculas"),
         MovieListStyled({
-        children: moviesListId.map(id => new Movie(movieList.get(id))),
+          children: moviesListId.map((id) => new Movie(movieList.get(id))),
         }),
       ],
     });

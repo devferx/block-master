@@ -2,7 +2,7 @@ import { render } from "../../react-dom.js";
 
 function renderChildren(children, container) {
   if (Array.isArray(children)) {
-    return children.forEach(child => render(child, container));
+    return children.forEach((child) => render(child, container));
   }
 
   return render(children, container);
@@ -40,7 +40,7 @@ export function createElement(type, props, content) {
 
   // Propiedades
   if (props)
-    Object.keys(props).forEach(prop =>
+    Object.keys(props).forEach((prop) =>
       setProperties(prop, props[prop], element)
     );
 

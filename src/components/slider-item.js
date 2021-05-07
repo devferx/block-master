@@ -1,5 +1,5 @@
 import { Component } from "../lib/react/index.js";
-import styled from '../lib/styled-components.js';
+import styled from "../lib/styled-components.js";
 
 const MovieSliderItemStyled = styled.li`
   position: relative;
@@ -43,15 +43,15 @@ const ButtonOutline = styled.button`
 
 export default class SliderItem extends Component {
   render() {
-    const {backdrop_path} = this.props;
+    const { backdrop_path } = this.props;
 
     return MovieSliderItemStyled({
       children: [
         MovieImage({ src: `//image.tmdb.org/t/p/original${backdrop_path}` }),
         ButtonsContainer({
           children: [
-            ButtonPrimary({class: "text-button"}, "VER AHORA"),
-            ButtonOutline({class: "text-button"}, "VER DESPUÉS")
+            ButtonPrimary({ class: "text-button" }, "VER AHORA"),
+            ButtonOutline({ class: "text-button" }, "VER DESPUÉS"),
           ],
         }),
       ],

@@ -6,7 +6,7 @@ function movieListAsMap(newList, oldList = new Map()) {
 }
 
 function getAllIds(list, oldList = []) {
-  return oldList.concat(list.map(movie => movie.id));
+  return oldList.concat(list.map((movie) => movie.id));
 }
 
 function getMostValuedIds(list, oldList = []) {

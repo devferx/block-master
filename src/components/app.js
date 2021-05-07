@@ -10,11 +10,7 @@ const AppStyled = styled.div``;
 class App extends Component {
   render() {
     return AppStyled({
-      children: [
-        new Header(),
-        new Slider(),
-        new MovieList(),
-      ],
+      children: [new Header(), new Slider(), new MovieList()],
     });
   }
 }

@@ -9,7 +9,7 @@ import {
 
 function filterByTitle(title, movies) {
   const list = [];
-  movies.forEach(movie => {
+  movies.forEach((movie) => {
     if (movie.title.toLowerCase().includes(title.toLowerCase())) {
       list.push(movie.id);
     }
