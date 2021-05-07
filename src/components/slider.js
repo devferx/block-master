@@ -13,6 +13,7 @@ export default class Slider extends Component {
   mountGlider = () => {
     setTimeout(() => {
       new Glide(".glide", {
+        type: "carousel",
         perView: 1.2,
         gap: 24,
         focusAt: "center",
