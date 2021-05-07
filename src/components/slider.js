@@ -31,7 +31,7 @@ export default class Slider extends Component {
     let counter = 0;
 
     movieList.forEach((movie) => {
-      counter < 6 && firstMovies.push(movie);
+      if (counter > 7 && counter < 14) firstMovies.push(movie);
       counter++;
     });
 
