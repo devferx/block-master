@@ -1,4 +1,9 @@
-import { ADD_MOVIES, SET_FILTER, SEARCH_MOVIE } from "../actions/index.js";
+import {
+  ADD_MOVIES,
+  SET_FILTER,
+  SEARCH_MOVIE,
+  CHANGE_TITLE,
+} from "../actions/index.js";
 
 import {
   movieListAsMap,
@@ -45,12 +50,15 @@ const reducer = (state, { type, payload }) => {
         movieList,
         list: { ...state.list, all, leastValued, mostValued },
       };
+    case CHANGE_TITLE:
+      return { ...state, title: payload };
     case SET_FILTER:
       return { ...state, filter: payload };
     case SEARCH_MOVIE:
       return {
         ...state,
         filter: "search",
+        title: "Resultados de busqueda",
         list: {
           ...state.list,
           search: searchMovie(payload, state.movieList, state.list.all),

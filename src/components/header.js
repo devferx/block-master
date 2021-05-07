@@ -2,7 +2,7 @@ import { Component, createElement } from "../lib/react/index.js";
 import styled from "../lib/styled-components.js";
 import Wrapper from "./wrapper.js";
 import store from "../store.js";
-import { SEARCH_MOVIE, SET_FILTER } from "../actions/index.js";
+import { SEARCH_MOVIE, SET_FILTER, CHANGE_TITLE } from "../actions/index.js";
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -35,8 +35,12 @@ class Header extends Component {
     selected: "all",
   };
 
-  handleChangeFilter = (filter) => {
+  handleChangeFilter = (filter, title) => {
     this.setState({ selected: filter });
+    store.dispatch({
+      type: CHANGE_TITLE,
+      payload: title,
+    });
     store.dispatch({
       type: SET_FILTER,
       payload: filter,
@@ -53,6 +57,10 @@ class Header extends Component {
         payload: query,
       });
     }
+    store.dispatch({
+      type: CHANGE_TITLE,
+      payload: "Todas las peliculas",
+    });
     return store.dispatch({
       type: SET_FILTER,
       payload: "all",
@@ -70,7 +78,8 @@ class Header extends Component {
               class: `nav-option text-button ${
                 this.state.selected === "all" && "is-selected"
               }`,
-              onClick: () => this.handleChangeFilter("all"),
+              onClick: () =>
+                this.handleChangeFilter("all", "Todas las peliculas"),
             },
             "Todas"
           ),
@@ -80,7 +89,11 @@ class Header extends Component {
               class: `nav-option text-button ${
                 this.state.selected === "mostValued" && "is-selected"
               }`,
-              onClick: () => this.handleChangeFilter("mostValued"),
+              onClick: () =>
+                this.handleChangeFilter(
+                  "mostValued",
+                  "Peliculas más valoradas"
+                ),
             },
             "Más valoradas"
           ),
@@ -90,7 +103,11 @@ class Header extends Component {
               class: `nav-option text-button ${
                 this.state.selected === "leastValued" && "is-selected"
               }`,
-              onClick: () => this.handleChangeFilter("leastValued"),
+              onClick: () =>
+                this.handleChangeFilter(
+                  "leastValued",
+                  "Peliculas menos valoradas"
+                ),
             },
             "Menos valoradas"
           ),

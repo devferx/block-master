@@ -10,6 +10,7 @@ import {
 } from "./normalize.js";
 
 const initialState = {
+  title: "Todas las peliculas",
   movieList: movieListAsMap(movies),
   filter: "all",
   list: {
