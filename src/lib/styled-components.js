@@ -7,6 +7,7 @@ const elements = [
   "h2",
   "h3",
   "p",
+  "li",
   "div",
   "section",
   "img",
