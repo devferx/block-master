@@ -13,6 +13,7 @@ const initialState = {
   title: "Todas las peliculas",
   movieList: movieListAsMap(movies),
   filter: "all",
+  query: "",
   list: {
     all: getAllIds(movies),
     mostValued: getMostValuedIds(movies),

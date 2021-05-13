@@ -3,6 +3,7 @@ import styled from "../lib/styled-components.js";
 
 import Wrapper from "./wrapper.js";
 import Movie from "./movie.js";
+import NotFound from "./not-found.js";
 import store from "../store.js";
 import api from "../api.js";
 import { ADD_MOVIES } from "../actions/index.js";
@@ -55,10 +56,15 @@ class MovieList extends Component {
     const state = store.getState();
     const moviesListId = state.list[state.filter];
     const movieList = state.movieList;
+    const title = state.title;
+
+    if (moviesListId.length == 0) {
+      return Wrapper({ children: new NotFound({ query: state.query }) });
+    }
 
     return Wrapper({
       children: [
-        createElement("h3", { class: "headline-1" }, "Todas las peliculas"),
+        createElement("h3", { class: "headline-1" }, title),
         MovieListStyled({
           children: moviesListId.map((id) => new Movie(movieList.get(id))),
         }),
