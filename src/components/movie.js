@@ -1,14 +1,22 @@
 import { Component, createElement } from "../lib/react/index.js";
 import styled from "../lib/styled-components.js";
 
+import { renderModal } from "../utils/modal";
+
 const StarStyled = styled.img`
   margin-right: 8px;
 `;
 
 class Movie extends Component {
   render() {
-    const { poster_path, title, id, vote_average } = this.props;
+    const { poster_path, modal, vote_average } = this.props;
     return createElement("article", {
+      onClick: () => {
+        if (modal) {
+          return;
+        }
+        renderModal(this.props);
+      },
       class: `movie ${vote_average >= 7 ? "recommended" : ""}`,
       children: [
         createElement("img", {

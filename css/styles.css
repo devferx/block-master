@@ -71,6 +71,18 @@ body {
   letter-spacing: 0.01em;
 }
 
+.body-1.regular {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.color-grey {
+  color: var(--grey);
+}
+
 .text-button {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
@@ -80,6 +92,10 @@ body {
   /* identical to box height, or 156% */
 
   text-align: center;
+}
+
+.overview {
+  margin: 8px 0;
 }
 
 .nav-option {
@@ -183,4 +199,24 @@ body {
   border-bottom-right-radius: 70px;
   background: rgba(0, 0, 0, 0.64);
   box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 0 83px;
+  padding-top: 128px;
+  background: rgba(15, 14, 23, 0.93);
+  box-sizing: border-box;
+}
+
+.modal-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 30px 1fr;
+  column-gap: 40px;
+  grid-template-areas: "- close" "picture overview";
 }
